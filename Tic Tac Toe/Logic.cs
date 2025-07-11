@@ -8,6 +8,8 @@
             const int COLS = 3;
             const char SYMBOL1 = 'O';
             const char SYMBOL2 = 'X';
+
+            UI_Method.DisplayWelcomeMessage();
             
             
             Random rnd = new Random();              //array
