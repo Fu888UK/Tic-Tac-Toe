@@ -50,7 +50,7 @@
 //for (int j = 0; j < cols; j++)              //top border 
 //{
 //    Console.Write("-+");                   //??? added a + but now getting 2 extra -                   
-//                                           //Console.Write("+");                   //??? AFTER DUBUGGING FEEL I SHOULD ADD SOMETHING HERE (FOR COL)                     
+//                                           //Console.Write("+");                                        
 //}
 //Console.WriteLine("");
 
