@@ -6,23 +6,34 @@
         {
             const int ROWS = 3;
             const int COLS = 3;
-            const char SYMBOL1 = 'O';
-            const char SYMBOL2 = 'X';
+            const char BLANK = '_';
+            //const char SYMBOL1 = 'O';
+            //const char SYMBOL2 = 'X';
 
             UI_Method.DisplayWelcomeMessage();
-            
-            
-            Random rnd = new Random();              //array
-            int[,] grid = new int[ROWS,COLS];
 
-            for (int i = 0; i < ROWS; i++) 
+            char[,] grid = new char[ROWS,COLS];
+            //char[,] grid = new char[ROWS, COLS];
+            //Random rnd = new Random();              //array
+            //int[,] grid = new int[ROWS, COLS];
+
+            for (int i = 0; i < ROWS; i++)      //fill grid with blank
             {
-                for (int j = 0; j < COLS; j++) 
+                for (int j = 0; j < COLS; j++)
                 {
-                    //refer to 2D arrays project (Mode 3)
-                    //Console.WriteLine(grid[i,j] + " ");
+                    grid[i, j] = BLANK;
                 }
             }
+
+            Console.WriteLine("\nGrid for Tic Tac Toe:");
+            for (int i = 0; i < ROWS; i++) 
+            {
+                for(int j = 0; j < COLS; j++) 
+                {
+                    Console.Write(grid[i, j] + " ");
+                }
+                Console.WriteLine();                
+            } 
 
         }
     }
