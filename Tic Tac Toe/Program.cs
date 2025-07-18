@@ -4,37 +4,17 @@
     {
         static void Main(string[] args)
         {
-            const int ROWS = 3;
-            const int COLS = 3;
-            const char BLANK = '_';
-            //const char SYMBOL1 = 'O';
-            //const char SYMBOL2 = 'X';
+            
+            UI_Method.DisplayWelcomeMessage();                   
 
-            UI_Method.DisplayWelcomeMessage();
+            //UI_Method.DisplayGrid(grid);
 
-            char[,] grid = new char[ROWS,COLS];
-            //char[,] grid = new char[ROWS, COLS];
-            //Random rnd = new Random();              //array
-            //int[,] grid = new int[ROWS, COLS];
+            string playerSymbol = UI_Method.AskUserInput();
 
-            for (int i = 0; i < ROWS; i++)      //fill grid with blank
-            {
-                for (int j = 0; j < COLS; j++)
-                {
-                    grid[i, j] = BLANK;
-                }
-            }
+            int[,] grid = new int[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files 
 
-            Console.WriteLine("\nGrid for Tic Tac Toe:");
-            for (int i = 0; i < ROWS; i++) 
-            {
-                for(int j = 0; j < COLS; j++) 
-                {
-                    Console.Write(grid[i, j] + " ");
-                }
-                Console.WriteLine();                
-            } 
-
+            UI_Method.DisplayGrid(grid);
+            
         }
     }
 }
@@ -45,6 +25,34 @@
 //take turns choosing symbol in empty space on the grid 
 //first one to 3 in a row wins 
 //if no player wins its a draw 
+
+
+//char[,] grid = new char[ROWS, COLS];
+
+//Random rnd = new Random();              //array
+
+
+
+
+//for (int i = 0; i < ROWS; i++)      //fill grid with blank
+//{
+//    for (int j = 0; j < COLS; j++)
+//    {
+//        grid[i, j] = BLANK;
+//    }
+//}
+
+//Console.WriteLine("\nGrid for Tic Tac Toe:");
+//for (int i = 0; i < ROWS; i++)
+//{
+//    for (int j = 0; j < COLS; j++)
+//    {
+//        Console.Write(grid[i, j] + " ");
+//    }
+//    Console.WriteLine();
+//}
+//the for loops should be in UI file
+
 
 
 
