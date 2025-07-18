@@ -14,15 +14,13 @@ namespace Tic_Tac_Toe
     {
         public static void DisplayWelcomeMessage() 
         {           
-
             Console.WriteLine("Hello, welcome to the world of TIC TAC TOE");
             Console.WriteLine("This a game where you take turns against the computer using a symbol X or O to fill in a 3x3 grid");
             Console.WriteLine("The winner of the game is the first one to get 3 symbols in a row");
             Console.WriteLine("Select the symbol you wish to play with, press 1 for X or 2 for O");
-
             
         }
-        public static void DisplayGrid(int[,] grid) 
+        public static void DisplayGrid(int[,]grid) //int[,] grid
         {           
 
             for (int i = 0; i < Constants.ROWS; i++)      //fill grid with blank
