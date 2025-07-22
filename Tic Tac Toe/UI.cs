@@ -20,20 +20,17 @@ namespace Tic_Tac_Toe
             //Console.WriteLine("Select the symbol you wish to play with, press 1 for X or 2 for O");
             
         }
-        public static void DisplayGrid(string[,]grid) //int[,] grid
-        {           
+        public static void DisplayGrid(string[,]grid) 
+        {
 
-            for (int i = 0; i < Constants.ROWS; i++)      //fill grid with blank
-            {
-                for (int j = 0; j < Constants.COLS; j++)
-                {
-                    //string myString = Constants.BLANK.ToString();
-                    grid[i, j] = Constants.BLANK.ToString(); ;
-                    //Console.Write ($"(char)grid[i, j] + {Constants.Blank}");
-                    //Console.Write((char)grid[i, j] + " ");
-                }
-            }
-            Console.WriteLine("\nGrid for Tic Tac Toe:");
+            //for (int i = 0; i < Constants.ROWS; i++)      //fill grid with BLANK
+            //{
+            //    for (int j = 0; j < Constants.COLS; j++)
+            //    {                    
+            //        grid[i, j] = Constants.BLANK.ToString();                    
+            //    }
+            //}
+            //Console.WriteLine("\nGrid for Tic Tac Toe:");
 
             for (int i = 0; i < Constants.ROWS; i++)        //display grid
             {
@@ -44,39 +41,39 @@ namespace Tic_Tac_Toe
                 Console.WriteLine();
             }
 
-            //for (int i = 0; i < rows; i++)                                //outer loop i goes through each row 
-            //{
-            //    for (int j = 0; j < cols; j++)                            // inner loop j goes through eacj col 
-            //    {
-            //        grid[i, j] = ((i + j) % 2 == 0) ? SYM1 : SYM2;        //checks if i and j are even 
-            //    }
-            //}
-            //Console.Write("+");
+            for (int i = 0; i < Constants.ROWS; i++)                                //outer loop i goes through each row 
+            {
+                for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
+                {
+                    grid[i, j] = "_";                                           //checks if i and j are even 
+                }
+            }
 
-            //for (int j = 0; j < cols; j++)              //top border 
-            //{
-            //    Console.Write("-+");                   //??? added a + but now getting 2 extra -                   
-            //                                           //Console.Write("+");                   //??? AFTER DUBUGGING FEEL I SHOULD ADD SOMETHING HERE (FOR COL)                     
-            //}
-            //Console.WriteLine("");
+            Console.Write("+");
 
-            //for (int i = 0; i < rows; i++)
-            //{
-            //    Console.Write("|");
-            //    for (int j = 0; j < cols; j++)
-            //    {
-            //        Console.Write(grid[i, j] + "|");    //replaced space with|, but now has extra | at the end 
-            //    }
-            //    Console.WriteLine("");
+            for (int j = 0; j < Constants.COLS; j++)              //top border 
+            {
+                Console.Write("-+");                                 
+            }
+            Console.WriteLine("");
 
-            //}
+            for (int i = 0; i < Constants.ROWS; i++)
+            {
+                Console.Write("|");
+                for (int j = 0; j < Constants.COLS; j++)
+                {
+                    Console.Write(grid[i, j] + "|");    //replaced space with|
+                }
+                Console.WriteLine("");
 
-            //Console.Write("+");
-            //for (int j = 0; j < cols; j++)  //bottom border 
-            //{
-            //    Console.Write("-+");       //added a +
-            //}
-            //Console.WriteLine("");
+            }
+
+            Console.Write("+");
+            for (int j = 0; j < Constants.COLS; j++)  //bottom border 
+            {
+                Console.Write("-+");       //added a +
+            }
+            Console.WriteLine("");
 
 
 
@@ -85,16 +82,46 @@ namespace Tic_Tac_Toe
         public static string AskUserInput()
         {
             Console.WriteLine("Select the symbol you wish to play with, press 1 for X or 2 for O");
-            string playerSelection = Console.ReadLine();
-            Console.WriteLine($"You have chosen {playerSelection}");
-            return playerSelection;
+            //string playerSelection = Console.ReadLine();
+            //Console.WriteLine($"You have chosen {playerSelection}");
+            return Console.ReadLine();
+                                                                            //?????? why asking for input twice 
             
         }
-        //public static string PlayerSelection()      //populating
-        //{
+        public static string GetPlayerSymbol()     //populating
+        {
+            while (true) 
+            {
+                string selection = AskUserInput();
+                if (selection == "1")
+                {
+                    Console.WriteLine("You chosen the symbol O");
+                    return Constants.SYMBOL1.ToString();
+                }
+                else if (selection == "2")
+                {
+                    Console.WriteLine("You chosen the symbol X");
+                    return Constants.SYMBOL2.ToString();
 
-            
-        //}
+                }
+                else
+                {
+                    Console.WriteLine("Invalid selection, please seleect 1 for X or 2 for O");
+                }
+
+            }           
+
+
+        }
+        //public static string PlayTheeGame()
+            //get location from user
+            //make sure it is a valid one 
+            //update grid, mark symbol 
+            //check for win (3 in a row)
+            //maybe display number in the grid for the user to select location 
+            //then select a random valid location for the computer to pick
+
+            //refer to slot machines project 
 
     }
 }
