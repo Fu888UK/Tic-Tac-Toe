@@ -18,9 +18,7 @@ namespace Tic_Tac_Toe
             Console.WriteLine("Hello, welcome to the world of TIC TAC TOE");
             Console.WriteLine("This a game where you take turns against the computer using a symbol X or O to fill in a 3x3 grid");
             Console.WriteLine("The winner of the game is the first one to get 3 symbols in a row");
-            //Console.WriteLine("Select the symbol you wish to play with, press 1 for X or 2 for O");
-
-        }
+                    }
         public static void DisplayGrid(string[,] grid)
         {
 
@@ -32,6 +30,10 @@ namespace Tic_Tac_Toe
             //    }
             //}
             //Console.WriteLine("\nGrid for Tic Tac Toe:");
+            Console.WriteLine("Below is a grid with numbers in it, you will use these numbers to select a location to fill in");
+
+            //int[,] grid = new int[Constants.ROWS,Constants.COLS];
+            int counter = 1;
 
             for (int i = 0; i < Constants.ROWS; i++)        //display grid
             {
@@ -46,7 +48,7 @@ namespace Tic_Tac_Toe
             {
                 for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
                 {
-                    grid[i, j] = "_";                                           //checks if i and j are even 
+                    grid[i, j] = counter++.ToString();                                           //checks if i and j are even 
                 }
             }
 
@@ -66,7 +68,6 @@ namespace Tic_Tac_Toe
                     Console.Write(grid[i, j] + "|");    //replaced space with|
                 }
                 Console.WriteLine("");
-
             }
 
             Console.Write("+");
@@ -75,10 +76,6 @@ namespace Tic_Tac_Toe
                 Console.Write("-+");       //added a +
             }
             Console.WriteLine("");
-
-
-
-
         }
         public static string AskUserInput()
         {
@@ -118,6 +115,10 @@ namespace Tic_Tac_Toe
         public static string GetPlayerPosition()
         {
             Console.WriteLine("Now you have chosen the symbol you wish to play with, now choose the positon of the grid you wish to place your symbol ");
+            return Console.ReadLine();
+
+            //display grid with numbers in each fixed position 
+
             while (true)
             {
                 var gridMapping = new Dictionary<(int, int), int>();
@@ -132,7 +133,7 @@ namespace Tic_Tac_Toe
                 gridMapping.Add((2, 2), 9);
 
 
-                int number = gridMapping[(Constants.ROWS, Constants.COLS)];
+                //int number = gridMapping[(Constants.ROWS, Constants.COLS)];
             }
             //var gridMapping = new Dictionary<(int, int), int>();
             //gridMapping.Add((0, 0), 1);

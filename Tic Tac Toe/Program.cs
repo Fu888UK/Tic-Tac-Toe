@@ -5,18 +5,20 @@
         static void Main(string[] args)
         {
             
-            UI_Method.DisplayWelcomeMessage();                  
-                     
-                       
-
+            UI_Method.DisplayWelcomeMessage();                
+                   
             UI_Method.GetPlayerSymbol();
 
             string[,] grid = new string[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files             
 
-            //string gridString = Convert.ToString(grid);
+            string gridString = Convert.ToString(grid);
+
             UI_Method.DisplayGrid(grid);
 
-            UI_Method.GetPlayerPosition();
+            UI_Method.AskUserInput();
+
+            UI_Method.GetPlayerSymbol();
+            //UI_Method.GetPlayerPosition();
 
 
         }
