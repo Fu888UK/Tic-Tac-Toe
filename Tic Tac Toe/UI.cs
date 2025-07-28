@@ -18,21 +18,12 @@ namespace Tic_Tac_Toe
             Console.WriteLine("Hello, welcome to the world of TIC TAC TOE");
             Console.WriteLine("This a game where you take turns against the computer using a symbol X or O to fill in a 3x3 grid");
             Console.WriteLine("The winner of the game is the first one to get 3 symbols in a row");
-                    }
+        }
+                    
         public static void DisplayGrid(string[,] grid)
         {
-
-            //for (int i = 0; i < Constants.ROWS; i++)      //fill grid with BLANK
-            //{
-            //    for (int j = 0; j < Constants.COLS; j++)
-            //    {                    
-            //        grid[i, j] = Constants.BLANK.ToString();                    
-            //    }
-            //}
-            //Console.WriteLine("\nGrid for Tic Tac Toe:");
             Console.WriteLine("Below is a grid with numbers in it, you will use these numbers to select a location to fill in");
-
-            //int[,] grid = new int[Constants.ROWS,Constants.COLS];
+                        
             int counter = 1;
 
             for (int i = 0; i < Constants.ROWS; i++)        //display grid
@@ -58,6 +49,7 @@ namespace Tic_Tac_Toe
             {
                 Console.Write("-+");
             }
+
             Console.WriteLine("");
 
             for (int i = 0; i < Constants.ROWS; i++)
@@ -77,21 +69,20 @@ namespace Tic_Tac_Toe
             }
             Console.WriteLine("");
         }
+
         public static string AskUserInput()
         {
-            Console.WriteLine("Select the symbol you wish to play with, press 1 for X or 2 for O");
-            //string playerSelection = Console.ReadLine();
-            //Console.WriteLine($"You have chosen {playerSelection}");
-            return Console.ReadLine();
-            //?????? why asking for input twice 
-
+            Console.WriteLine("Select the symbol you wish to play with, press 1 for O or 2 for X");
+            
+            return Console.ReadLine();            
         }
+
         public static string GetPlayerSymbol()     //populating
         {
             while (true)
             {
                 string selection = AskUserInput();
-                if (selection == "1")
+                if (selection == "1")//Constants.SYMBOL1.ToString());
                 {
                     Console.WriteLine("You chosen the symbol O");
                     return Constants.SYMBOL1.ToString();
@@ -100,67 +91,66 @@ namespace Tic_Tac_Toe
                 {
                     Console.WriteLine("You chosen the symbol X");
                     return Constants.SYMBOL2.ToString();
-
                 }
                 else
                 {
-                    Console.WriteLine("Invalid selection, please seleect 1 for X or 2 for O");
+                    Console.WriteLine($"Invalid selection, please seleect 1 for {Constants.SYMBOL1} or 2 for {Constants.SYMBOL2}");
                 }
-
             }
-
-
         }
 
         public static string GetPlayerPosition()
         {
-            Console.WriteLine("Now you have chosen the symbol you wish to play with, now choose the positon of the grid you wish to place your symbol ");
-            return Console.ReadLine();
-
-            //display grid with numbers in each fixed position 
+            Console.WriteLine(' ');                               
 
             while (true)
             {
-                var gridMapping = new Dictionary<(int, int), int>();
-                gridMapping.Add((0, 0), 1);
-                gridMapping.Add((0, 1), 2);
-                gridMapping.Add((0, 2), 3);
-                gridMapping.Add((1, 0), 4);
-                gridMapping.Add((1, 1), 5);
-                gridMapping.Add((1, 2), 6);
-                gridMapping.Add((2, 0), 7);
-                gridMapping.Add((2, 1), 8);
-                gridMapping.Add((2, 2), 9);
+                Console.WriteLine("Now you have chosen the symbol you wish to play with, now choose the positon between 1-9 of the grid you wish to place your symbol ");
+                string input = Console.ReadLine();
 
+
+                //var gridMapping = new Dictionary <int, (int, int) >();
+                //gridMapping.Add(1, (0, 0));
+                //gridMapping.Add(2, (0, 1));
+                //gridMapping.Add(3, (0, 2));
+                //gridMapping.Add(4, (1, 0));
+                //gridMapping.Add(5, (1, 1));
+                //gridMapping.Add(6, (1, 2));
+                //gridMapping.Add(7, (2, 0));
+                //gridMapping.Add(8, (2, 1));
+                //gridMapping.Add(9, (2, 2));             // need to refer to previous project(s) to write this better 
+
+                var gridMapping = new Dictionary<int, (int, int)>();
+
+                for (int Constants.ROWS = 0; Constants.ROWS < 0; Constants.ROWS++) // create mapping dynamically 
+                {
+                    for (int Constants.COLS = 0; Constants.COLS < 0; Constants.COLS++)
+                    {
+
+                    }
+
+                }
+
+                return Console.ReadLine();
+                
+                // 'if' for invalid selection 
+                Console.WriteLine("Invalid selection, please try again");
 
                 //int number = gridMapping[(Constants.ROWS, Constants.COLS)];
             }
-            //var gridMapping = new Dictionary<(int, int), int>();
-            //gridMapping.Add((0, 0), 1);
-            //gridMapping.Add((0, 1), 2);
-            //gridMapping.Add((0, 2), 3);
-            //gridMapping.Add((1, 0), 4);
-            //gridMapping.Add((1, 1), 5);
-            //gridMapping.Add((1, 2), 6);
-            //gridMapping.Add((2, 0), 7);
-            //gridMapping.Add((2, 1), 8);
-            //gridMapping.Add((2, 2), 9);
-
+            
 
 
         }
-        //public static string PlayTheeGame() 
-        //{
-        //    bool win = false;
-        //select positions on the grid 0,0 - 0,1 - 0,2 - 1.0 - 1,1 - 1,2 - 2,1 - 2,2 - 2,3 (need to map these location of the grid to 1 2 3 4 5 6 7 8 9)
-        //if () 
-        //{
 
-        //}
+
+               
 
 
 
     }
+    //TO DO
+
     //get location from user
     //make sure it is a valid one
     //update grid, mark symbol
@@ -175,7 +165,17 @@ namespace Tic_Tac_Toe
 
 
 
+//for (int i = 0; i < Constants.ROWS; i++)      //fill grid with BLANK
+//{
+//    for (int j = 0; j < Constants.COLS; j++)
+//    {                    
+//        grid[i, j] = Constants.BLANK.ToString();                    
+//    }
+//}
+//Console.WriteLine("\nGrid for Tic Tac Toe:");
 
+//string playerSelection = Console.ReadLine();
+//Console.WriteLine($"You have chosen {playerSelection}");
 
 
 
