@@ -16,7 +16,7 @@ namespace Tic_Tac_Toe
         public static void DisplayWelcomeMessage()
         {
             Console.WriteLine("Hello, welcome to the world of TIC TAC TOE");
-            Console.WriteLine("This a game where you take turns against the computer using a symbol X or O to fill in a 3x3 grid");
+            Console.WriteLine($"This a game where you take turns against the computer using a symbol {Constants.SYMBOL1} or {Constants.SYMBOL2} to fill in a 3x3 grid");
             Console.WriteLine("The winner of the game is the first one to get 3 symbols in a row");
         }
                     
@@ -106,7 +106,7 @@ namespace Tic_Tac_Toe
             while (true)
             {
                 Console.WriteLine("Now you have chosen the symbol you wish to play with, now choose the positon between 1-9 of the grid you wish to place your symbol ");
-                string input = Console.ReadLine();
+                string playerInput = Console.ReadLine();
 
 
                 //var gridMapping = new Dictionary <int, (int, int) >();
@@ -118,33 +118,42 @@ namespace Tic_Tac_Toe
                 //gridMapping.Add(6, (1, 2));
                 //gridMapping.Add(7, (2, 0));
                 //gridMapping.Add(8, (2, 1));
-                //gridMapping.Add(9, (2, 2));             // need to refer to previous project(s) to write this better 
+                //gridMapping.Add(9, (2, 2));             
+                //int row = 3;
+                //int col = 3;
 
-                var gridMapping = new Dictionary<int, (int, int)>();
+                //var gridMapping = new Dictionary<int, (int, int)>();        //creates a dictionary Key and Value 
 
-                for (int Constants.ROWS = 0; Constants.ROWS < 0; Constants.ROWS++) // create mapping dynamically 
+                int[,] numberedGrid = new int[Constants.ROWS,Constants.COLS];
+
+                for (int row  = 0; row < Constants.ROWS; row++) 
                 {
-                    for (int Constants.COLS = 0; Constants.COLS < 0; Constants.COLS++)
+                    for (int col = 0; col < Constants.COLS; col++) 
                     {
-
-                    }
-
+                        numberedGrid[row, col] = row * Constants.COLS + col + 1;            
+                        //numberedGrid = accesses elemeentt row & col
+                        //calculate starting number = row * Constants.COLS(3) + col (adds the current index to row starting value) + 1 (so number starts at 1 not 0, since row & col are 0)  
+                    }                
                 }
+                //PRINT
+                for (int row = 0; row < Constants.ROWS; row++) 
+                {
+                    for(int col = 0;col < Constants.COLS; col++) 
+                    {
+                        Console.Write(numberedGrid[row, col].ToString());
+                    }
+                    Console.WriteLine();
+                }                               
 
                 return Console.ReadLine();
                 
                 // 'if' for invalid selection 
                 Console.WriteLine("Invalid selection, please try again");
-
-                //int number = gridMapping[(Constants.ROWS, Constants.COLS)];
-            }
-            
+                                
+            }          
 
 
-        }
-
-
-               
+        }              
 
 
 
