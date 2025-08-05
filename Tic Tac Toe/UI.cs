@@ -105,26 +105,12 @@ namespace Tic_Tac_Toe
 
             while (true)
             {
-                Console.WriteLine("Now you have chosen the symbol you wish to play with, now choose the positon between 1-9 of the grid you wish to place your symbol ");
+                Console.WriteLine("Please choose the positon between 1-9 of the grid you wish to place your symbol");
                 string playerInput = Console.ReadLine();
+                
+                Console.WriteLine();
 
-
-                //var gridMapping = new Dictionary <int, (int, int) >();
-                //gridMapping.Add(1, (0, 0));
-                //gridMapping.Add(2, (0, 1));
-                //gridMapping.Add(3, (0, 2));
-                //gridMapping.Add(4, (1, 0));
-                //gridMapping.Add(5, (1, 1));
-                //gridMapping.Add(6, (1, 2));
-                //gridMapping.Add(7, (2, 0));
-                //gridMapping.Add(8, (2, 1));
-                //gridMapping.Add(9, (2, 2));             
-                //int row = 3;
-                //int col = 3;
-
-                //var gridMapping = new Dictionary<int, (int, int)>();        //creates a dictionary Key and Value 
-
-                int[,] numberedGrid = new int[Constants.ROWS,Constants.COLS];
+                int[,] numberedGrid = new int[Constants.ROWS,Constants.COLS];   //mapping 
 
                 for (int row  = 0; row < Constants.ROWS; row++) 
                 {
@@ -140,25 +126,39 @@ namespace Tic_Tac_Toe
                 {
                     for(int col = 0;col < Constants.COLS; col++) 
                     {
-                        Console.Write(numberedGrid[row, col].ToString());
+                        Console.Write(numberedGrid[row, col] + " ");    //.ToString()
                     }
                     Console.WriteLine();
-                }                               
+                }
 
-                return Console.ReadLine();
+                //validate input //playerInput is string, need to convert to int (TryParse)
+                //out = used to pass argument by reference. Tells TryParse that it can modify this variable and return value through it
+                //int position - declares nw int variable to store parsed result
+                if (int.TryParse(playerInput, out int position)) //validate
+                {
+                    if (position >= 1 && position <= 9) //if both conditions are true, the input is valid (cointer in DisplayGrid method to make dynamic???)
+                    {
+                        return playerInput;                        
+                    } 
+                }                                    
                 
-                // 'if' for invalid selection 
-                Console.WriteLine("Invalid selection, please try again");
-                                
-            }          
+                Console.WriteLine("Invalid selection, please try again");                               
+            }        
 
 
-        }              
+
+        }         
 
 
 
     }
     //TO DO
+
+    //convert player position to grid location 
+    //check if location is available 
+    //update grid
+    //check for winner / draw 
+
 
     //get location from user
     //make sure it is a valid one
@@ -171,6 +171,21 @@ namespace Tic_Tac_Toe
 
 }
 
+
+//var gridMapping = new Dictionary <int, (int, int) >();
+//gridMapping.Add(1, (0, 0));
+//gridMapping.Add(2, (0, 1));
+//gridMapping.Add(3, (0, 2));
+//gridMapping.Add(4, (1, 0));
+//gridMapping.Add(5, (1, 1));
+//gridMapping.Add(6, (1, 2));
+//gridMapping.Add(7, (2, 0));
+//gridMapping.Add(8, (2, 1));
+//gridMapping.Add(9, (2, 2));             
+//int row = 3;
+//int col = 3;
+
+//var gridMapping = new Dictionary<int, (int, int)>();        //creates a dictionary Key and Value 
 
 
 
