@@ -25,6 +25,7 @@ namespace Tic_Tac_Toe
             Console.WriteLine("Below is a grid with numbers in it, you will use these numbers to select a location to fill in");
                         
             int counter = 1;
+            
 
             for (int i = 0; i < Constants.ROWS; i++)        //display grid
             {
@@ -39,7 +40,7 @@ namespace Tic_Tac_Toe
             {
                 for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
                 {
-                    grid[i, j] = counter++.ToString();                                           //checks if i and j are even 
+                    grid[i, j] = counter++.ToString();  //have tried using Constant.COUNTER+1 (++causes an error) but fills with 11           //checks if i and j are even 
                 }
             }
 
@@ -120,35 +121,36 @@ namespace Tic_Tac_Toe
                         //numberedGrid = accesses elemeentt row & col
                         //calculate starting number = row * Constants.COLS(3) + col (adds the current index to row starting value) + 1 (so number starts at 1 not 0, since row & col are 0)  
                     }                
-                }
-                //PRINT
-                for (int row = 0; row < Constants.ROWS; row++) 
-                {
-                    for(int col = 0;col < Constants.COLS; col++) 
-                    {
-                        Console.Write(numberedGrid[row, col] + " ");    //.ToString()
-                    }
-                    Console.WriteLine();
-                }
-
+                }                
                 //validate input //playerInput is string, need to convert to int (TryParse)
                 //out = used to pass argument by reference. Tells TryParse that it can modify this variable and return value through it
                 //int position - declares nw int variable to store parsed result
                 if (int.TryParse(playerInput, out int position)) //validate
                 {
-                    if (position >= 1 && position <= 9) //if both conditions are true, the input is valid (cointer in DisplayGrid method to make dynamic???)
+                    if (position >= Constants.FIRST_POSITION && position <= 9) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)
                     {
                         return playerInput;                        
                     } 
                 }                                    
                 
                 Console.WriteLine("Invalid selection, please try again");                               
-            }        
-
-
-
-        }         
-
+            }
+        }
+        public static string RowPosition()
+        {
+            calculate Row -(position - 1) / Constants.ROWS / COLS
+            Console.WriteLine(" ");
+            return;
+        }
+        public static string ColPosition() 
+        {
+            calculate Col -position - 1 % Constants.ROWS / COLS
+            Console.WriteLine(" ");
+            return;
+        }
+        //calculation convert 1-9 to 0-8 (position -1)
+        //calculate Row - (position -1) / Constants.ROWS/COLS       eg position 5 - 1 = 4 / 3 = 1 
+        //calculate Col - position -1 % Constants.ROWS/COLS         eg position 5 -1 % 3 = 4 % 3 =1
 
 
     }
@@ -170,6 +172,19 @@ namespace Tic_Tac_Toe
     //refer to slot machines project
 
 }
+
+
+
+//PRINT
+//for (int row = 0; row < Constants.ROWS; row++)
+//{
+//    for (int col = 0; col < Constants.COLS; col++)
+//    {
+//        Console.Write(numberedGrid[row, col] + " ");    //.ToString()
+//    }
+//    Console.WriteLine();
+//}
+
 
 
 //var gridMapping = new Dictionary <int, (int, int) >();
