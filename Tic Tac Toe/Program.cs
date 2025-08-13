@@ -11,6 +11,8 @@
 
             string gridString = Convert.ToString(grid);
 
+            grid = Logic.InitializeGrid(grid); 
+
             UI_Method.DisplayGrid(grid);
 
             //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
@@ -18,6 +20,10 @@
             UI_Method.GetPlayerSymbol();
 
             UI_Method.GetPlayerPosition();
+
+            UI_Method.UpdateGrid();
+
+            UI_Method.DisplayGrid(grid);
 
 
         }

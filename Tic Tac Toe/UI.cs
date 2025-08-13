@@ -26,7 +26,7 @@ namespace Tic_Tac_Toe
         {
             Console.WriteLine("Below is a grid with numbers in it, you will use these numbers to select a location to fill in");
 
-            int counter = 1;
+            //int counter = 1;
 
 
             for (int i = 0; i < Constants.ROWS; i++)        //display grid
@@ -38,13 +38,13 @@ namespace Tic_Tac_Toe
                 Console.WriteLine();
             }
 
-            for (int i = 0; i < Constants.ROWS; i++)                                //outer loop i goes through each row 
-            {
-                for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
-                {
-                    grid[i, j] = counter++.ToString();                              //checks if i and j are even 
-                }
-            }
+            //for (int i = 0; i < Constants.ROWS; i++)                                //outer loop i goes through each row 
+            //{
+            //    for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
+            //    {
+            //        grid[i, j] = counter++.ToString();                              //checks if i and j are even 
+            //    }
+            //}
 
             Console.Write("+");
 
@@ -123,11 +123,7 @@ namespace Tic_Tac_Toe
                         //numberedGrid = accesses elemeentt row & col
                         //calculate starting number = row * Constants.COLS(3) + col (adds the current index to row starting value) + 1 (so number starts at 1 not 0, since row & col are 0)  
                     }
-                }
-                //validate input //playerInput is string, need to convert to int (TryParse)
-                //out = used to pass argument by reference. Tells TryParse that it can modify this variable and return value through it
-                //int position - declares nw int variable to store parsed result
-
+                }              
 
                 if (int.TryParse(playerInput, out int position)) //validate
                 {
@@ -137,7 +133,7 @@ namespace Tic_Tac_Toe
                         int col = (position - 1) % Constants.COLS;
                         return (row, col);
                     }
-                    if (position >= 1 && position <= 9)
+                    if (position >= 1 && position <= Constants.LAST_POSITION)
                     {
                         int row = (position - 1) / 3;
                         int col = (position - 1) % 3;
@@ -147,7 +143,7 @@ namespace Tic_Tac_Toe
                 Console.WriteLine("Invalid selection, please try again");
             }
         }
-        public static void UpdateGrid(char[,] grid, int row, int col, char playerSymbol)
+        public static char[,] UpdateGrid(char[,] grid, int row, int col, char playerSymbol)
         {
             if (grid[row,col] == ' ') 
             {
@@ -157,45 +153,63 @@ namespace Tic_Tac_Toe
             {
                 Console.WriteLine("Position already taken");
             }
+            return grid;
+        }
+        public static void Counter() 
+        {
+
         }
 
     }
 
 }
-    //TO DO
-
-    //convert player position to grid location 
-    //check if location is available 
-    //update grid
-    //check for winner / draw 
 
 
-    //get location from user
-    //make sure it is a valid one
-    //update grid, mark symbol
-    //check for win(3 in a row)
-    //maybe display number in the grid for the user to select location
-    //then select a random valid location for the computer to pick
 
-    //refer to slot machines project
+
+
+
+
+//TO DO
+
+//convert player position to grid location 
+//check if location is available 
+//update grid
+//check for winner / draw 
+
+
+//get location from user
+//make sure it is a valid one
+//update grid, mark symbol
+//check for win(3 in a row)
+//maybe display number in the grid for the user to select location
+//then select a random valid location for the computer to pick
+
+//refer to slot machines project
 
 
 
 //public static string RowPosition()
-        //{
-        //    calculate Row -(position - 1) / Constants.ROWS / COLS
-        //    Console.WriteLine(" ");
-        //    return;
-        //}
-        //public static string ColPosition() 
-        //{
-        //    calculate Col -position - 1 % Constants.ROWS / COLS
-        //    Console.WriteLine(" ");
-        //    return;
-    
-        //calculation convert 1-9 to 0-8 (position -1)
-        //calculate Row - (position -1) / Constants.ROWS/COLS       eg position 5 - 1 = 4 / 3 = 1 
-        //calculate Col - position -1 % Constants.ROWS/COLS         eg position 5 -1 % 3 = 4 % 3 =1
+//{
+//    calculate Row -(position - 1) / Constants.ROWS / COLS
+//    Console.WriteLine(" ");
+//    return;
+//}
+//public static string ColPosition() 
+//{
+//    calculate Col -position - 1 % Constants.ROWS / COLS
+//    Console.WriteLine(" ");
+//    return;
+
+//calculation convert 1-9 to 0-8 (position -1)
+//calculate Row - (position -1) / Constants.ROWS/COLS       eg position 5 - 1 = 4 / 3 = 1 
+//calculate Col - position -1 % Constants.ROWS/COLS         eg position 5 -1 % 3 = 4 % 3 =1
+
+
+
+//validate input //playerInput is string, need to convert to int (TryParse)
+//out = used to pass argument by reference. Tells TryParse that it can modify this variable and return value through it
+//int position - declares nw int variable to store parsed result
 
 
 

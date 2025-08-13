@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace Tic_Tac_Toe
 {
-    //public static class Logic_Method
-    //{
-    //    static void Main (string[] args) 
-    //    {
-    //        int test = AddTwoNumbers(4, 9);
-    //        Console.WriteLine(test);
-    //    }
-    //    static int AddTwoNumbers(int num1, int num2)
-    //    {
-    //        int result = num1 + num2;
-    //        return result;
+    public static class Logic
+    {
+        public static void InitializeGrid(string[,] grid) 
+        {
+            int counter = 1;
 
+            for (int i = 0; i < Constants.ROWS; i++)                                //outer loop i goes through each row 
+            {
+                for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
+                {
+                    grid[i, j] = counter++.ToString();                              //checks if i and j are even 
+                }
+            }
 
-    //    }
+        }
 
-    //}
+    }
 }

@@ -14,7 +14,7 @@ namespace Tic_Tac_Toe
         public const char SYMBOL1 = 'O';
         public const char SYMBOL2 = 'X';
         public const int FIRST_POSITION = 1;
-        public const int LAST_POSITION = 9;
+        public const int LAST_POSITION = ROWS*COLS;
         
     }
 }
