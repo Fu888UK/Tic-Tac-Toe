@@ -9,7 +9,7 @@
                  
             string[,] grid = new string[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files             
 
-            string gridString = Convert.ToString(grid);
+            //string gridString = Convert.ToString(grid);
 
             grid = Logic.InitializeGrid(grid); 
 
@@ -20,6 +20,8 @@
             UI_Method.GetPlayerSymbol();
 
             UI_Method.GetPlayerPosition();
+
+            grid = UI_Method.UpdateGrid();
 
             UI_Method.UpdateGrid();
 

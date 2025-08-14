@@ -8,7 +8,7 @@ namespace Tic_Tac_Toe
 {
     public static class Logic
     {
-        public static void InitializeGrid(string[,] grid) 
+        public static string[,] InitializeGrid(string[,] grid) 
         {
             int counter = 1;
 
@@ -19,6 +19,7 @@ namespace Tic_Tac_Toe
                     grid[i, j] = counter++.ToString();                              //checks if i and j are even 
                 }
             }
+            return grid;
 
         }
 

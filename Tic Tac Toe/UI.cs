@@ -143,9 +143,9 @@ namespace Tic_Tac_Toe
                 Console.WriteLine("Invalid selection, please try again");
             }
         }
-        public static char[,] UpdateGrid(char[,] grid, int row, int col, char playerSymbol)
+        public static string[,] UpdateGrid(string[,] grid, int row, int col, string playerSymbol)
         {
-            if (grid[row,col] == ' ') 
+            if ((grid[row,col] ==  " ")) 
             {
                 grid[row, col] = playerSymbol;
             }
