@@ -18,9 +18,9 @@
             string playerSymbol = UI_Method.GetPlayerSymbol();
             (int row, int col) = UI_Method.GetPlayerPosition();
 
-            UI_Method.GetPlayerSymbol();            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
+           //UI_Method.GetPlayerSymbol();            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
 
-            UI_Method.GetPlayerPosition();                       
+            //UI_Method.GetPlayerPosition();                       
 
             grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
 
@@ -28,7 +28,8 @@
 
             UI_Method.DisplayGrid(grid);
 
-
+            //while loop for lines 19 to 29
+            //check for wins and draws (refer to slot machines project)
         }
     }
 }
@@ -39,6 +40,10 @@
 //take turns choosing symbol in empty space on the grid 
 //first one to 3 in a row wins 
 //if no player wins its a draw 
+
+
+
+
 
 
 //char[,] grid = new char[ROWS, COLS];

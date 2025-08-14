@@ -25,26 +25,7 @@ namespace Tic_Tac_Toe
         public static void DisplayGrid(string[,] grid)
         {
             Console.WriteLine("Below is a grid with numbers in it, you will use these numbers to select a location to fill in");
-
-            //int counter = 1;
-
-
-            for (int i = 0; i < Constants.ROWS; i++)        //display grid
-            {
-                for (int j = 0; j < Constants.COLS; j++)
-                {
-                    Console.Write(grid[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-
-            //for (int i = 0; i < Constants.ROWS; i++)                                //outer loop i goes through each row 
-            //{
-            //    for (int j = 0; j < Constants.COLS; j++)                            // inner loop j goes through eacj col 
-            //    {
-            //        grid[i, j] = counter++.ToString();                              //checks if i and j are even 
-            //    }
-            //}
+                       
 
             Console.Write("+");
 
@@ -145,13 +126,13 @@ namespace Tic_Tac_Toe
         }
         public static string[,] UpdateGrid(string[,] grid, int row, int col, string playerSymbol)
         {
-            if ((grid[row,col] ==  " "))            //check if emptty
-            {
-                grid[row, col] = playerSymbol;      //assign X or O
+            if (grid[row,col] ==  "X" || grid[row, col] == "O")           //check if empty        //shouldn't be == to empty 
+            {                
+                Console.WriteLine("Position already taken");
             }
             else 
             {
-                Console.WriteLine("Position already taken");
+                grid[row, col] = playerSymbol;      //assign X or O         //place it not assign
             }
             return grid;
             //maybe check for invalid position
