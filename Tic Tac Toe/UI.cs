@@ -145,20 +145,21 @@ namespace Tic_Tac_Toe
         }
         public static string[,] UpdateGrid(string[,] grid, int row, int col, string playerSymbol)
         {
-            if ((grid[row,col] ==  " ")) 
+            if ((grid[row,col] ==  " "))            //check if emptty
             {
-                grid[row, col] = playerSymbol;
+                grid[row, col] = playerSymbol;      //assign X or O
             }
             else 
             {
                 Console.WriteLine("Position already taken");
             }
             return grid;
+            //maybe check for invalid position
         }
-        public static void Counter() 
-        {
+        //public static void Counter() 
+        //{
 
-        }
+        //}
 
     }
 

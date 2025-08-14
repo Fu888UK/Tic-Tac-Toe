@@ -13,17 +13,18 @@
 
             grid = Logic.InitializeGrid(grid); 
 
-            UI_Method.DisplayGrid(grid);
+            UI_Method.DisplayGrid(grid);         
 
-            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
+            string playerSymbol = UI_Method.GetPlayerSymbol();
+            (int row, int col) = UI_Method.GetPlayerPosition();
 
-            UI_Method.GetPlayerSymbol();
+            UI_Method.GetPlayerSymbol();            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
 
-            UI_Method.GetPlayerPosition();
+            UI_Method.GetPlayerPosition();                       
 
-            grid = UI_Method.UpdateGrid();
+            grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
 
-            UI_Method.UpdateGrid();
+            //UI_Method.UpdateGrid();
 
             UI_Method.DisplayGrid(grid);
 
