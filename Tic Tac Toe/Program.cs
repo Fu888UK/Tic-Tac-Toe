@@ -1,4 +1,6 @@
-﻿namespace Tic_Tac_Toe
+﻿using System.Data.SqlTypes;
+
+namespace Tic_Tac_Toe
 {
     internal class Program
     {
@@ -7,26 +9,32 @@
             
             UI_Method.DisplayWelcomeMessage();              
                  
-            string[,] grid = new string[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files             
-
-            //string gridString = Convert.ToString(grid);
-
+            string[,] grid = new string[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files           
+                       
             grid = Logic.InitializeGrid(grid); 
 
             UI_Method.DisplayGrid(grid);         
 
             string playerSymbol = UI_Method.GetPlayerSymbol();
-            (int row, int col) = UI_Method.GetPlayerPosition();
 
-           //UI_Method.GetPlayerSymbol();            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
+            ////(int row, int col) = UI_Method.GetPlayerPosition();
 
-            //UI_Method.GetPlayerPosition();                       
+            bool gameOver = false;
 
-            grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
+            while (!gameOver)
+            {
+                (int row, int col) = UI_Method.GetPlayerPosition();
+                grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
+                UI_Method.DisplayGrid(grid);
+            }
 
-            //UI_Method.UpdateGrid();
+            ////grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
+            ////UI_Method.DisplayGrid(grid);
 
-            UI_Method.DisplayGrid(grid);
+
+            //////grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
+
+            //////UI_Method.DisplayGrid(grid);
 
             //while loop for lines 19 to 29
             //check for wins and draws (refer to slot machines project)
@@ -43,6 +51,14 @@
 
 
 
+
+//string gridString = Convert.ToString(grid);
+
+//UI_Method.GetPlayerSymbol();            //UI_Method.AskUserInput();  // this method is already within 'GetPlayerSymbol' method
+
+//UI_Method.GetPlayerPosition();
+
+//UI_Method.UpdateGrid();
 
 
 

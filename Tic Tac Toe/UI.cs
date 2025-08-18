@@ -137,10 +137,15 @@ namespace Tic_Tac_Toe
             return grid;
             //maybe check for invalid position
         }
-        //public static void Counter() 
-        //{
+        public static void checkWin() 
+        {
 
-        //}
+        }
+
+        public static void checkDraw()
+        {
+
+        }
 
     }
 
