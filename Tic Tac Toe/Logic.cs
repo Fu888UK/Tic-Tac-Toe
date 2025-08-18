@@ -22,6 +22,47 @@ namespace Tic_Tac_Toe
             return grid;
 
         }
+        public static bool CheckWin(string[,] grid, string playerSymbol)
+        {
+            int midLine = Constants.ROWS / 2;
+            //bool win = true;
+
+            for (int i = 1; i < Constants.COLS; i++)
+            {
+                if (grid[midLine, i] != playerSymbol) 
+                {
+                    return false;
+                
+                }
+                return true;
+            }
+
+        }
+
+        public static bool CheckDraw(string[,]grid)
+        {
+
+            return true;
+        }
 
     }
 }
+
+
+
+
+
+
+
+//bool win = true;
+//for (int row = 0; row < Constants.ROWS; row++)
+//{
+//    if (grid[row, 0]) == playerSymbol && grid[row, 1] == playerSymbol && grid[row, 2] == playerSymbol)
+//                {
+//    int midLine = Constants.ROWS / 2;
+//    for (int i = 1; i < Constants.COLS; i++)
+//    {
+//        win = false;
+//    }
+//}
+            
