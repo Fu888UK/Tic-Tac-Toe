@@ -26,16 +26,16 @@ namespace Tic_Tac_Toe
         {
             int midLine = Constants.ROWS / 2;
             //bool win = true;
-
+            
             for (int i = 1; i < Constants.COLS; i++)
             {
-                if (grid[midLine, i] != playerSymbol) 
+                if (grid[midLine, i] != playerSymbol)
                 {
-                    return false;
-                
-                }
-                return true;
+                    return false;                 
+                }                    
             }
+            return true;        //placed after loop after checking cols
+
 
         }
 

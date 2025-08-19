@@ -28,6 +28,9 @@ namespace Tic_Tac_Toe
                 UI_Method.DisplayGrid(grid);
             }
 
+
+            Logic.CheckWin(grid);
+
             ////grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
             ////UI_Method.DisplayGrid(grid);
 
