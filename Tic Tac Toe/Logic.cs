@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Tic_Tac_Toe
             return grid;
 
         }
-        public static bool CheckWin(string[,] grid, string playerSymbol)
+        public static bool CheckMidLine(string[,] grid, string playerSymbol)
         {
             int midLine = Constants.ROWS / 2;
             //bool win = true;
@@ -31,15 +32,71 @@ namespace Tic_Tac_Toe
             {
                 if (grid[midLine, i] != playerSymbol)
                 {
-                    return false;                 
+                    return false;                   
                 }                    
             }
-            return true;        //placed after loop after checking cols
-
+            return true;        //placed after loop after checking cols        
+        }
+        public static bool CheckHorizontalLine(string[,] grid, string playerSymbol) 
+        {
+            for (int i = 0; i < Constants.ROWS; i++) 
+            {
+                for (int j = 0; j < Constants.COLS; j++) 
+                {
+                    if (grid[i,0] != grid[i, j]) 
+                    {
+                        return false;
+                        break;
+                    }                
+                }            
+            }
+            return true;
 
         }
+        public static bool CheckVerticalLine(string[,] grid, string playerSymbol)
+        {
+            for (int i = 0; i < Constants.COLS; i++) 
+            {
+                for (int j = 0; j < Constants.ROWS; j++)
+                {
+                    if (grid[j, i] != grid[0, i]) 
+                    {
+                        return false;
+                        break;
+                    }
+                }
+                
+            }
+            return true;
+        }
+        
+        public static bool CheckDiagonalLine1(string[,] grid, string playerSymbol)
+        {            
+            for (int i = 0; i < Constants.ROWS; i++)
+            {
+                if (grid[0, 0] != grid[i, i])
+                {
+                    return false;
+                    break;
+                }
+            }
+            return true;
+        }
+        public static bool CheckDiagonalLine2(string[,] grid, string playerSymbol)
+        {
+            for (int i = 0; i < Constants.ROWS; i++)
+            {
+                if (grid[0, Constants.COLS -1] != grid[-1, i])
+                {
+                    return false;
+                    break;
+                }
+            }
+            return true;
+        }
 
-        public static bool CheckDraw(string[,]grid)
+
+        public static bool CheckDraw(string[,]grid)     //draw method to check to see if the grid is full with no winner 
         {
 
             return true;
