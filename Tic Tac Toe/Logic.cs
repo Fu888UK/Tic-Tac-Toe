@@ -95,11 +95,30 @@ namespace Tic_Tac_Toe
             return true;
         }
 
+        public static bool CheckWin(string[,] grid, string playerSymbol) 
+        {            
+            return  CheckMidLine(grid, playerSymbol) ||
+                    CheckHorizontalLine(grid, playerSymbol) ||
+                    CheckVerticalLine(grid, playerSymbol) ||
+                    CheckDiagonalLine1(grid, playerSymbol) ||
+                    CheckDiagonalLine2(grid, playerSymbol);
+        }
+
 
         public static bool CheckDraw(string[,]grid)     //draw method to check to see if the grid is full with no winner 
         {
+            for (int i = 0; i < 1; i++) 
+            {
+                for (int j = 0; j < 1; j++) 
+                {
+                    if () 
+                    {
 
-            return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
     }
