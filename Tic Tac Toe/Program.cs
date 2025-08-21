@@ -26,24 +26,28 @@ namespace Tic_Tac_Toe
                 (int row, int col) = UI_Method.GetPlayerPosition();
                 grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
                 UI_Method.DisplayGrid(grid);
+
+
+                gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
+                                                                    //grid - the current game board state   //playerSymbol - checking for X or O 
+                                                                    //gameOver - returns bool, true or false (hasn't won yet)
             }
 
 
-            Logic.CheckWin(grid);
-
-            ////grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
-            ////UI_Method.DisplayGrid(grid);
-
-
-            //////grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
-
-            //////UI_Method.DisplayGrid(grid);
-
-            //while loop for lines 19 to 29
+            
             //check for wins and draws (refer to slot machines project)
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 //3x3 grid 

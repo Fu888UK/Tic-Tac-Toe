@@ -86,39 +86,40 @@ namespace Tic_Tac_Toe
         {
             for (int i = 0; i < Constants.ROWS; i++)
             {
-                if (grid[0, Constants.COLS -1] != grid[-1, i])
+                if (grid[0, Constants.COLS -1 -i] != playerSymbol)          //if (grid[0, Constants.COLS -1] != grid[-1, i])
                 {
                     return false;
-                    break;
+                    //break;
                 }
             }
             return true;
         }
 
         public static bool CheckWin(string[,] grid, string playerSymbol) 
-        {            
-            return  CheckMidLine(grid, playerSymbol) ||
+        {
+            return CheckMidLine(grid, playerSymbol) ||
                     CheckHorizontalLine(grid, playerSymbol) ||
                     CheckVerticalLine(grid, playerSymbol) ||
-                    CheckDiagonalLine1(grid, playerSymbol) ||
+                    CheckDiagonalLine1(grid, playerSymbol)||
                     CheckDiagonalLine2(grid, playerSymbol);
+            //return true;
         }
 
 
         public static bool CheckDraw(string[,]grid)     //draw method to check to see if the grid is full with no winner 
         {
-            for (int i = 0; i < 1; i++) 
+            for (int i = 0; i < Constants.ROWS; i++) 
             {
-                for (int j = 0; j < 1; j++) 
+                for (int j = 0; j < Constants.COLS; j++) 
                 {
-                    if () 
+                    if (grid[i,j] == " ") 
                     {
-
+                        return false;
                     }
                 }
             }
 
-            return false;
+            return true;
         }
 
     }
