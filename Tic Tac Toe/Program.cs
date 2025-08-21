@@ -31,6 +31,22 @@ namespace Tic_Tac_Toe
                 gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
                                                                     //grid - the current game board state   //playerSymbol - checking for X or O 
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
+
+                //if (!gameOver)
+                //{
+                //    if (Logic.CheckDraw(grid)) 
+                //    {
+                //        gameOver = true;
+                //        Console.WriteLine("Its a Draw");
+                //    }
+                //}            
+                //need to add check for draw
+                //need to add cpu turn
+
+                if (gameOver) 
+                {
+                    Console.WriteLine($"Player {playerSymbol} wins");                
+                }
             }
 
 
