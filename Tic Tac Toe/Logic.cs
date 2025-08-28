@@ -95,15 +95,15 @@ namespace Tic_Tac_Toe
             return true;
         }
 
-        public static bool CheckWin(string[,] grid, string playerSymbol) 
+        public static bool CheckWin(string[,] grid, string playerSymbol)
         {
-            return CheckMidLine(grid, playerSymbol) ||
+            return  CheckMidLine(grid, playerSymbol) ||
                     CheckHorizontalLine(grid, playerSymbol) ||
                     CheckVerticalLine(grid, playerSymbol) ||
-                    CheckDiagonalLine1(grid, playerSymbol)||
+                    CheckDiagonalLine1(grid, playerSymbol) ||
                     CheckDiagonalLine2(grid, playerSymbol);
 
-            
+
         }
 
 
@@ -122,6 +122,21 @@ namespace Tic_Tac_Toe
 
             return true;
         }
+        public static int ComputerMove(string[,] grid, string computerSymbol)       //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params)
+        {
+            for (int i = 0; i < Constants.ROWS; i++)
+            {
+                for (int j = 0; j < Constants.COLS; j++)
+                {
+                    if ()
+                    {
+                        return();
+                    }
+                }
+            }
+            return ();
+        }
+
 
     }
 }

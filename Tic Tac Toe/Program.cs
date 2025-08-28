@@ -1,4 +1,5 @@
-﻿using System.Data.SqlTypes;
+﻿using System.Data;
+using System.Data.SqlTypes;
 
 namespace Tic_Tac_Toe
 {
@@ -20,41 +21,50 @@ namespace Tic_Tac_Toe
             ////(int row, int col) = UI_Method.GetPlayerPosition();
 
             bool gameOver = false;
-
+            
             while (!gameOver)
             {
                 (int row, int col) = UI_Method.GetPlayerPosition();
+
                 grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
+
                 UI_Method.DisplayGrid(grid);
+                Logic.CheckWin(grid, playerSymbol);
+
 
 
                 gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
                                                                     //grid - the current game board state   //playerSymbol - checking for X or O 
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
+                //evoke cpu turn here 
+                //evoke GameWin method, but give it a better name 
 
-                //if (!gameOver)
+                ////////////////////////////////////////////////////////////////////////////////
+                
+                //bool drawGame = Logic.CheckDraw(grid);
+
+                //if (drawGame) 
                 //{
-                //    if (Logic.CheckDraw(grid)) 
-                //    {
-                //        gameOver = true;
-                //        Console.WriteLine("Its a Draw");
-                //    }
-                //}            
-                //need to add check for draw
-                //need to add cpu turn
-
-                if (gameOver) 
-                {
-                    Console.WriteLine($"Player {playerSymbol} wins");                
-                }
+                //    Console.WriteLine("The grid is now full and this game is a draw");
+                //}
             }
 
 
+            //need to add check for draw (refer to slot machines project)
+            //need to add cpu turn
             
-            //check for wins and draws (refer to slot machines project)
         }
     }
 }
+
+//if (!gameOver)
+//{
+//    if (Logic.CheckDraw(grid)) 
+//    {
+//        gameOver = true;
+//        Console.WriteLine("Its a Draw");
+//    }
+//}            
 
 
 

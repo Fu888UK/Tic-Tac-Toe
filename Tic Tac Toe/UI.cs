@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Tic_Tac_Toe;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Tic_Tac_Toe
@@ -124,6 +125,7 @@ namespace Tic_Tac_Toe
                 Console.WriteLine("Invalid selection, please try again");
             }
         }
+
         public static string[,] UpdateGrid(string[,] grid, int row, int col, string playerSymbol)
         {
             if (grid[row,col] ==  "X" || grid[row, col] == "O")           //check if empty        //shouldn't be == to empty 
@@ -135,16 +137,32 @@ namespace Tic_Tac_Toe
                 grid[row, col] = playerSymbol;      //assign X or O         //place it not assign
             }
             return grid;
-            //maybe check for invalid position
-        }     
-        
+            //maybe check for invalid position           
+
+        }
+        public static void GameWin(bool gameOver, string playerSymbol)
+        {
+            //bool gameOver = false;
+            if (gameOver)
+            {
+                Console.WriteLine($"Player {playerSymbol} wins");
+                
+            }
+        }
+
+
 
     }
 
 }
 
+//bool gameOver = false;
+//gameOver = Logic.CheckWin(grid, playerSymbol);
 
-
+//if (gameOver)
+//{
+//    Console.WriteLine($"Player {playerSymbol} wins");
+//}
 
 
 
