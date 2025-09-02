@@ -83,6 +83,19 @@ namespace Tic_Tac_Toe
                 }
             }
         }
+        public static string GetComputerSymbol(string playerSymbol)
+        {
+            if (playerSymbol == Constants.SYMBOL1.ToString())
+            {
+                return Constants.SYMBOL2.ToString();
+            }
+            else
+            {
+                return Constants.SYMBOL1.ToString();
+            }
+        }
+
+
 
         public static (int row, int col) GetPlayerPosition()        //public static void GetPlayerPosition(params int[] position)
         {
@@ -140,7 +153,7 @@ namespace Tic_Tac_Toe
             //maybe check for invalid position           
 
         }
-        public static void GameWin(bool gameOver, string playerSymbol)
+        public static void CheckForGameWin(bool gameOver, string playerSymbol)
         {
             //bool gameOver = false;
             if (gameOver)

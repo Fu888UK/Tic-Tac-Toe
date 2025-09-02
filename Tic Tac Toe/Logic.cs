@@ -122,7 +122,7 @@ namespace Tic_Tac_Toe
 
             return true;
         }
-        public static int ComputerMove(string[,] grid, string computerSymbol)       //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params)
+        public static int GetComputerMove(string[,] grid, string computerSymbol)       //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params)
         {
             for (int i = 0; i < Constants.ROWS; i++)
             {
@@ -130,7 +130,7 @@ namespace Tic_Tac_Toe
                 {
                     if ()
                     {
-                        return();
+                        return ();
                     }
                 }
             }

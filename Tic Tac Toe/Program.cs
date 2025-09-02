@@ -17,6 +17,7 @@ namespace Tic_Tac_Toe
             UI_Method.DisplayGrid(grid);         
 
             string playerSymbol = UI_Method.GetPlayerSymbol();
+            string computerSymbol = UI_Method.GetComputerSymbol();
 
             ////(int row, int col) = UI_Method.GetPlayerPosition();
 
@@ -36,8 +37,10 @@ namespace Tic_Tac_Toe
                 gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
                                                                     //grid - the current game board state   //playerSymbol - checking for X or O 
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
+                UI_Method.CheckForGameWin(gameOver,playerSymbol);
+                
                 //evoke cpu turn here 
-                //evoke GameWin method, but give it a better name 
+                
 
                 ////////////////////////////////////////////////////////////////////////////////
                 
