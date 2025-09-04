@@ -62,6 +62,28 @@ namespace Tic_Tac_Toe
             return Console.ReadLine();
         }
 
+        //public static string GetPlayerAndComputerSymbol()     //populating
+        //{
+        //    while (true)
+        //    {
+        //        string selection = AskUserInput();
+        //        if (selection == "1")//Constants.SYMBOL1.ToString());
+        //        {
+        //            Console.WriteLine("You chosen the symbol O");
+        //            return Constants.SYMBOL1.ToString();
+        //        }
+        //        else if (selection == "2")
+        //        {
+        //            Console.WriteLine("You chosen the symbol X");
+        //            return Constants.SYMBOL2.ToString();
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine($"Invalid selection, please seleect 1 for {Constants.SYMBOL1} or 2 for {Constants.SYMBOL2}");
+        //        }
+        //    }
+        //}
+
         public static string GetPlayerSymbol()     //populating
         {
             while (true)
@@ -91,13 +113,11 @@ namespace Tic_Tac_Toe
             }
             else
             {
-                return Constants.SYMBOL1.ToString();
+                return Constants.SYMBOL1.ToString();                    //should this be in logic file
             }
         }
 
-
-
-        public static (int row, int col) GetPlayerPosition()        //public static void GetPlayerPosition(params int[] position)
+        public static (int row, int col) GetPlayerPosition()        
         {
             Console.WriteLine(' ');
 
@@ -154,8 +174,7 @@ namespace Tic_Tac_Toe
 
         }
         public static void CheckForGameWin(bool gameOver, string playerSymbol)
-        {
-            //bool gameOver = false;
+        {         
             if (gameOver)
             {
                 Console.WriteLine($"Player {playerSymbol} wins");

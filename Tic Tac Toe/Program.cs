@@ -17,7 +17,7 @@ namespace Tic_Tac_Toe
             UI_Method.DisplayGrid(grid);         
 
             string playerSymbol = UI_Method.GetPlayerSymbol();
-            string computerSymbol = UI_Method.GetComputerSymbol();
+            string computerSymbol = UI_Method.GetComputerSymbol(playerSymbol);
 
             ////(int row, int col) = UI_Method.GetPlayerPosition();
 
@@ -32,29 +32,28 @@ namespace Tic_Tac_Toe
                 UI_Method.DisplayGrid(grid);
                 Logic.CheckWin(grid, playerSymbol);
 
-
-
                 gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
                                                                     //grid - the current game board state   //playerSymbol - checking for X or O 
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
                 UI_Method.CheckForGameWin(gameOver,playerSymbol);
-                
-                //evoke cpu turn here 
+
+                UI_Method.GetComputerSymbol(playerSymbol);
+
+                Logic.GetComputerPosition(grid, computerSymbol);
+
+
                 
 
-                ////////////////////////////////////////////////////////////////////////////////
+
                 
+
                 //bool drawGame = Logic.CheckDraw(grid);
 
                 //if (drawGame) 
                 //{
                 //    Console.WriteLine("The grid is now full and this game is a draw");
                 //}
-            }
-
-
-            //need to add check for draw (refer to slot machines project)
-            //need to add cpu turn
+            }            
             
         }
     }

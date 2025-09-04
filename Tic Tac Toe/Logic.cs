@@ -122,19 +122,22 @@ namespace Tic_Tac_Toe
 
             return true;
         }
-        public static int GetComputerMove(string[,] grid, string computerSymbol)       //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params)
+        public static int GetComputerPosition(string[,] grid, string computerSymbol)    //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params- 2d string array and symbol the computer uses)
         {
+            Random random = new Random();                       //create random number
+            List<int> emptyGridPosition = new List<int>();     //create a list to store positions of empty positions 
+
             for (int i = 0; i < Constants.ROWS; i++)
             {
                 for (int j = 0; j < Constants.COLS; j++)
                 {
-                    if ()
+                    if (string.IsNullOrEmpty(grid[i,j]) || grid[i,j] == " ")    
                     {
-                        return ();
+                        emptyGridPosition.Add(i * Constants.COLS + j);
                     }
                 }
             }
-            return ();
+            return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;
         }
 
 
