@@ -131,13 +131,21 @@ namespace Tic_Tac_Toe
             {
                 for (int j = 0; j < Constants.COLS; j++)
                 {
-                    if (string.IsNullOrEmpty(grid[i,j]) || grid[i,j] == " ")    
+                    if (string.IsNullOrEmpty(grid[i,j]) || grid[i,j] == " ")    //look for numbers = empty or look for symbols to identify taken cells
                     {
                         emptyGridPosition.Add(i * Constants.COLS + j);
                     }
                 }
             }
-            return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;
+            if (emptyGridPosition.Count > 0)
+            {
+                return emptyGridPosition[random.Next(emptyGridPosition.Count)];
+            }
+            else
+            {
+                return -1;
+            }
+                return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;
         }
 
 

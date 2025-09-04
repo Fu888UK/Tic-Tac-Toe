@@ -27,6 +27,8 @@ namespace Tic_Tac_Toe
             {
                 (int row, int col) = UI_Method.GetPlayerPosition();
 
+                //?? another loop here ??
+
                 grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
 
                 UI_Method.DisplayGrid(grid);
@@ -41,11 +43,12 @@ namespace Tic_Tac_Toe
 
                 Logic.GetComputerPosition(grid, computerSymbol);
 
-
                 
 
 
-                
+
+
+
 
                 //bool drawGame = Logic.CheckDraw(grid);
 
