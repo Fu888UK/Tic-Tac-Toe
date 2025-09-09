@@ -105,18 +105,7 @@ namespace Tic_Tac_Toe
                 }
             }
         }
-        public static string GetComputerSymbol(string playerSymbol)
-        {
-            if (playerSymbol == Constants.SYMBOL1.ToString())
-            {
-                return Constants.SYMBOL2.ToString();
-            }
-            else
-            {
-                return Constants.SYMBOL1.ToString();                    //should this be in logic file
-            }
-        }
-
+        
         public static (int row, int col) GetPlayerPosition()        
         {
             Console.WriteLine(' ');
@@ -140,6 +129,7 @@ namespace Tic_Tac_Toe
                     }
                 }              
 
+                //create input method then evoke in GetPlayerPosition method and GetComputerPosition method 
                 if (int.TryParse(playerInput, out int position)) //validate
                 {
                     if (position >= Constants.FIRST_POSITION && position <= Constants.LAST_POSITION) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)

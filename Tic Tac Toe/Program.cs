@@ -17,11 +17,12 @@ namespace Tic_Tac_Toe
             UI_Method.DisplayGrid(grid);         
 
             string playerSymbol = UI_Method.GetPlayerSymbol();
-            string computerSymbol = UI_Method.GetComputerSymbol(playerSymbol);
+            string computerSymbol = Logic.GetComputerSymbol(playerSymbol);
 
             ////(int row, int col) = UI_Method.GetPlayerPosition();
 
             bool gameOver = false;
+            
             
             while (!gameOver)
             {
@@ -39,9 +40,9 @@ namespace Tic_Tac_Toe
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
                 UI_Method.CheckForGameWin(gameOver,playerSymbol);
 
-                UI_Method.GetComputerSymbol(playerSymbol);
+                Logic.GetComputerSymbol(playerSymbol);
 
-                Logic.GetComputerPosition(grid, computerSymbol);
+                (int row, int col) = Logic.GetComputerPosition(grid, computerSymbol);
 
                 
 

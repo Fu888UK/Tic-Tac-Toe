@@ -64,12 +64,10 @@ namespace Tic_Tac_Toe
                         return false;
                         break;
                     }
-                }
-                
+                }                
             }
             return true;
-        }
-        
+        }        
         public static bool CheckDiagonalLine1(string[,] grid, string playerSymbol)
         {            
             for (int i = 0; i < Constants.ROWS; i++)
@@ -94,7 +92,6 @@ namespace Tic_Tac_Toe
             }
             return true;
         }
-
         public static bool CheckWin(string[,] grid, string playerSymbol)
         {
             return  CheckMidLine(grid, playerSymbol) ||
@@ -103,10 +100,7 @@ namespace Tic_Tac_Toe
                     CheckDiagonalLine1(grid, playerSymbol) ||
                     CheckDiagonalLine2(grid, playerSymbol);
 
-
         }
-
-
         public static bool CheckDraw(string[,]grid)     //draw method to check to see if the grid is full with no winner 
         {
             for (int i = 0; i < Constants.ROWS; i++) 
@@ -131,9 +125,9 @@ namespace Tic_Tac_Toe
             {
                 for (int j = 0; j < Constants.COLS; j++)
                 {
-                    if (string.IsNullOrEmpty(grid[i,j]) || grid[i,j] == " ")    //look for numbers = empty or look for symbols to identify taken cells
-                    {
-                        emptyGridPosition.Add(i * Constants.COLS + j);
+                    if (grid[i, j]  != Constants.SYMBOL1.ToString() && grid[i, j] != Constants.SYMBOL2.ToString())    //look for numbers = empty or look for symbols to identify taken cells
+                    {                                                             
+                        emptyGridPosition.Add(i * Constants.COLS + j);            
                     }
                 }
             }
@@ -145,9 +139,21 @@ namespace Tic_Tac_Toe
             {
                 return -1;
             }
-                return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;
+            
+                //return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;    //another way to write if/else
         }
 
+        public static string GetComputerSymbol(string playerSymbol)
+        {
+            if (playerSymbol == Constants.SYMBOL1.ToString())
+            {
+                return Constants.SYMBOL2.ToString();
+            }
+            else
+            {
+                return Constants.SYMBOL1.ToString();                    //should this be in logic file
+            }            
+        }
 
     }
 }
