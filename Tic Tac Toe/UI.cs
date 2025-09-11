@@ -127,23 +127,25 @@ namespace Tic_Tac_Toe
                         //numberedGrid = accesses elemeentt row & col
                         //calculate starting number = row * Constants.COLS(3) + col (adds the current index to row starting value) + 1 (so number starts at 1 not 0, since row & col are 0)  
                     }
-                }              
-
-                //create input method then evoke in GetPlayerPosition method and GetComputerPosition method 
-                if (int.TryParse(playerInput, out int position)) //validate
-                {
-                    if (position >= Constants.FIRST_POSITION && position <= Constants.LAST_POSITION) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)
-                    {
-                        int row = (position - 1) / Constants.COLS;
-                        int col = (position - 1) % Constants.COLS;
-                        return (row, col);
-                    }
-                    if (position >= 1 && position <= Constants.LAST_POSITION)
-                    {
-                        int row = (position - 1) / 3;
-                        int col = (position - 1) % 3;
-                    }
                 }
+
+                Logic.ValidatePlayerPosition();
+                //create input method then evoke in GetPlayerPosition method and GetComputerPosition method 
+
+                //if (int.TryParse(playerInput, out int position)) //validate
+                //{
+                //    if (position >= Constants.FIRST_POSITION && position <= Constants.LAST_POSITION) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)
+                //    {
+                //        int row = (position - 1) / Constants.COLS;
+                //        int col = (position - 1) % Constants.COLS;
+                //        return (row, col);
+                //    }
+                //    if (position >= 1 && position <= Constants.LAST_POSITION)
+                //    {
+                //        int row = (position - 1) / 3;
+                //        int col = (position - 1) % 3;
+                //    }
+                //}
 
                 Console.WriteLine("Invalid selection, please try again");
             }

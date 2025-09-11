@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -139,8 +140,31 @@ namespace Tic_Tac_Toe
             {
                 return -1;
             }
+            //return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;    //another way to write if/else
+            Logic.ValidatePlayerPosition();
+        }
+        public static (int row, int col) ValidatePlayerPosition()
+        {
+            while (true) 
+            {
+                string playerInput = Console.ReadLine();
+
+                if (int.TryParse(playerInput, out int position)) //validate
+                {
+                    if (position >= Constants.FIRST_POSITION && position <= Constants.LAST_POSITION) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)
+                    {
+                        int row = (position - 1) / Constants.COLS;
+                        int col = (position - 1) % Constants.COLS;
+                        return (row, col);
+                    }
+                    if (position >= 1 && position <= Constants.LAST_POSITION)
+                    {
+                        int row = (position - 1) / 3;
+                        int col = (position - 1) % 3;
+                    }
+                }
+            }
             
-                //return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;    //another way to write if/else
         }
 
         public static string GetComputerSymbol(string playerSymbol)
