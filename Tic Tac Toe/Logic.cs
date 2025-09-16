@@ -117,10 +117,11 @@ namespace Tic_Tac_Toe
 
             return true;
         }
-        public static int GetComputerPosition(string[,] grid, string computerSymbol)    //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params- 2d string array and symbol the computer uses)
+        public static (int computerRow, int comouterCol) GetComputerPosition(string[,] grid, string computerSymbol)    //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params- 2d string array and symbol the computer uses)
         {
             Random random = new Random();                       //create random number
-            List<int> emptyGridPosition = new List<int>();     //create a list to store positions of empty positions 
+            List<int> emptyGridPosition = new List<int>();
+            int computerSelection = -1;//create a list to store positions of empty positions 
 
             for (int i = 0; i < Constants.ROWS; i++)
             {
@@ -134,21 +135,30 @@ namespace Tic_Tac_Toe
             }
             if (emptyGridPosition.Count > 0)
             {
-                return emptyGridPosition[random.Next(emptyGridPosition.Count)];
+                computerSelection =  emptyGridPosition[random.Next(emptyGridPosition.Count)];
             }
             else
             {
-                return -1;
+                computerSelection = -1;
             }
             //return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;    //another way to write if/else
-            Logic.ValidatePlayerPosition();
+
+            return Logic.ValidatePlayerPosition(computerSelection);
+
+            //if (computerSelection == -1) 
+            //{
+            //    return (-1, -1);
+            //}
+            //int row = computerSelection / Constants.COLS;
+            //int col = computerSelection % Constants.COLS;
+
+            //return (row, col);
         }
-        public static (int row, int col) ValidatePlayerPosition()
+
+        public static (int row, int col) ValidatePlayerPosition(string playerInput)
         {
             while (true) 
-            {
-                string playerInput = Console.ReadLine();
-
+            {                
                 if (int.TryParse(playerInput, out int position)) //validate
                 {
                     if (position >= Constants.FIRST_POSITION && position <= Constants.LAST_POSITION) //if both conditions are true, the input is valid (counter in DisplayGrid method to make dynamic???)
@@ -161,8 +171,10 @@ namespace Tic_Tac_Toe
                     {
                         int row = (position - 1) / 3;
                         int col = (position - 1) % 3;
+                        return (row, col);
                     }
                 }
+                Console.WriteLine("Invalid selection, please try again");
             }
             
         }

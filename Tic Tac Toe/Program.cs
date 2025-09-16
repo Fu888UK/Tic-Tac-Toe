@@ -40,9 +40,9 @@ namespace Tic_Tac_Toe
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
                 UI_Method.CheckForGameWin(gameOver,playerSymbol);
 
-                Logic.GetComputerSymbol(playerSymbol);
+                 Logic.GetComputerSymbol(playerSymbol);
 
-                (int row, int col) = Logic.GetComputerPosition(grid, computerSymbol);
+                (int ComputeRow, int computerCol) = Logic.GetComputerPosition(grid, computerSymbol);
 
                 
 

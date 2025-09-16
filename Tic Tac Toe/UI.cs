@@ -129,7 +129,11 @@ namespace Tic_Tac_Toe
                     }
                 }
 
-                Logic.ValidatePlayerPosition();
+                (int row1, int col1)  = Logic.ValidatePlayerPosition(playerInput);
+
+                return (row1, col1);
+               
+                
                 //create input method then evoke in GetPlayerPosition method and GetComputerPosition method 
 
                 //if (int.TryParse(playerInput, out int position)) //validate
@@ -146,8 +150,7 @@ namespace Tic_Tac_Toe
                 //        int col = (position - 1) % 3;
                 //    }
                 //}
-
-                Console.WriteLine("Invalid selection, please try again");
+                               
             }
         }
 
