@@ -101,6 +101,7 @@ namespace Tic_Tac_Toe
                     CheckDiagonalLine1(grid, playerSymbol) ||
                     CheckDiagonalLine2(grid, playerSymbol);
 
+
         }
         public static bool CheckDraw(string[,]grid)     //draw method to check to see if the grid is full with no winner 
         {
@@ -143,7 +144,7 @@ namespace Tic_Tac_Toe
             }
             //return emptyGridPosition.Count > 0 ? emptyGridPosition[random.Next(emptyGridPosition.Count)] : -1;    //another way to write if/else
 
-            return Logic.ValidatePlayerPosition(computerSelection);
+            return Logic.ValidatePlayerPosition(Convert.ToString(computerSelection));
 
             //if (computerSelection == -1) 
             //{
@@ -175,8 +176,7 @@ namespace Tic_Tac_Toe
                     }
                 }
                 Console.WriteLine("Invalid selection, please try again");
-            }
-            
+            }            
         }
 
         public static string GetComputerSymbol(string playerSymbol)

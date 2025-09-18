@@ -156,16 +156,37 @@ namespace Tic_Tac_Toe
 
         public static string[,] UpdateGrid(string[,] grid, int row, int col, string playerSymbol)
         {
-            if (grid[row,col] ==  "X" || grid[row, col] == "O")           //check if empty        //shouldn't be == to empty 
-            {                
-                Console.WriteLine("Position already taken");
+            int rows = grid.GetLength(0);       //to validate if the requested position exists
+            int cols = grid.GetLength(1);
+            
+            if (row < 0 || row >= rows || col < 0 || col >= cols)   //<0 = row index is negative (invalid) //row>=rows rrow index is beyond grid size - (same for col) 
+                                                                    //prevents array index out of bounds error
+            {
+                Console.WriteLine("Invalide position! Please choose a valid position");
+                return grid;
             }
-            else 
+
+            if (grid[row,col] ==  "X" || grid[row, col] == "O")           //check if position is already taken     //prevents overwriting existing moves and returns early grid unchanged 
+            {                
+                Console.WriteLine("Position already taken, Please choose an empty position.");
+                
+            }
+
+            if (grid[row,col]!= " " && grid[row, col] != "" && grid[row, col] != null)      //validate empty positon 
+            {
+                Console.WriteLine("Invalide selection, please choose an empty position");
+                    return grid;
+            }
+
+            //grid[row,col] = playerSymbol;       // update grid
+            //return grid;
+            else
             {
                 grid[row, col] = playerSymbol;      //assign X or O         //place it not assign
             }
             return grid;
-            //maybe check for invalid position           
+
+
 
         }
         public static void CheckForGameWin(bool gameOver, string playerSymbol)

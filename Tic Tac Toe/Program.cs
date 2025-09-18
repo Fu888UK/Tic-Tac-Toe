@@ -33,20 +33,23 @@ namespace Tic_Tac_Toe
                 grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
 
                 UI_Method.DisplayGrid(grid);
-                Logic.CheckWin(grid, playerSymbol);
+                //Logic.CheckWin(grid, playerSymbol);
 
                 gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
-                                                                    //grid - the current game board state   //playerSymbol - checking for X or O 
+                //if true - break within CheckForWin method         //grid - the current game board state   //playerSymbol - checking for X or O 
                                                                     //gameOver - returns bool, true or false (hasn't won yet)
                 UI_Method.CheckForGameWin(gameOver,playerSymbol);
 
-                 Logic.GetComputerSymbol(playerSymbol);
+                //Logic.GetComputerSymbol(playerSymbol);
 
-                (int ComputeRow, int computerCol) = Logic.GetComputerPosition(grid, computerSymbol);
+                (int computerRow, int computerCol) = Logic.GetComputerPosition(grid, computerSymbol);   //incorporate position already taken here 
 
+                grid = UI_Method.UpdateGrid(grid, computerRow, computerCol, computerSymbol);
+
+                UI_Method.DisplayGrid(grid);
+
+                gameOver = Logic.CheckWin(grid, playerSymbol);
                 
-
-
 
 
 
