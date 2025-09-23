@@ -11,36 +11,46 @@ namespace Tic_Tac_Toe
             UI_Method.DisplayWelcomeMessage();              
                  
             string[,] grid = new string[Constants.ROWS, Constants.COLS];      //defined grid here which will be used across all files           
-                       
+
+            //string[,] testGrid = new string[3, 3];
+
             grid = Logic.InitializeGrid(grid); 
 
             UI_Method.DisplayGrid(grid);         
 
             string playerSymbol = UI_Method.GetPlayerSymbol();
             string computerSymbol = Logic.GetComputerSymbol(playerSymbol);
-
-            ////(int row, int col) = UI_Method.GetPlayerPosition();
-
-            bool gameOver = false;
-            
+                        
+            bool gameOver = false;                       
             
             while (!gameOver)
             {
+                //player turn
                 (int row, int col) = UI_Method.GetPlayerPosition();
-
-                //?? another loop here ??
-
                 grid = UI_Method.UpdateGrid(grid, row, col, playerSymbol);
-
                 UI_Method.DisplayGrid(grid);
-                //Logic.CheckWin(grid, playerSymbol);
+                
+                //check if player won
+                gameOver = Logic.CheckWin(grid, playerSymbol);      //gameOver - returns bool, true or false (hasn't won yet)
 
-                gameOver = Logic.CheckWin(grid, playerSymbol);      //both reqquired params grid and playerSymbol 
-                //if true - break within CheckForWin method         //grid - the current game board state   //playerSymbol - checking for X or O 
-                                                                    //gameOver - returns bool, true or false (hasn't won yet)
-                UI_Method.CheckForGameWin(gameOver,playerSymbol);
+                if (gameOver)
+                {
+                    UI_Method.CheckForGameWin(gameOver, playerSymbol);
+                    break;
+                }
+                //UI_Method.CheckForGameWin(gameOver,playerSymbol);
+                
 
-                //Logic.GetComputerSymbol(playerSymbol);
+                //check for draw
+                bool drawGame = Logic.CheckDraw(grid);
+                               
+                if (drawGame)
+                {
+                    Console.WriteLine("The grid is now full and this game is a draw");
+                    break;
+                }
+
+                //Computer's turn               
 
                 (int computerRow, int computerCol) = Logic.GetComputerPosition(grid, computerSymbol);   //incorporate position already taken here 
 
@@ -48,18 +58,30 @@ namespace Tic_Tac_Toe
 
                 UI_Method.DisplayGrid(grid);
 
-                gameOver = Logic.CheckWin(grid, playerSymbol);
-                
+                //check if computer won
 
+                gameOver = Logic.CheckWin(grid, computerSymbol);
+                if (gameOver)
+                {
+                    UI_Method.CheckForGameWin(gameOver, computerSymbol);
+                    break;
+                }
 
+                //UI_Method.CheckForGameWin(gameOver, playerSymbol);
 
+                drawGame = Logic.CheckDraw(grid);
+                if (drawGame)
+                {
+                    Console.WriteLine("The grid is now full and this game is a draw");
+                    break;
+                }
 
-                //bool drawGame = Logic.CheckDraw(grid);
-
-                //if (drawGame) 
+                //if (gameOver)        //NOT RECOGNISING COMPUTER WIN
                 //{
-                //    Console.WriteLine("The grid is now full and this game is a draw");
+                //    break;
                 //}
+
+                
             }            
             
         }

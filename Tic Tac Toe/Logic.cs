@@ -118,7 +118,7 @@ namespace Tic_Tac_Toe
 
             return true;
         }
-        public static (int computerRow, int comouterCol) GetComputerPosition(string[,] grid, string computerSymbol)    //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params- 2d string array and symbol the computer uses)
+        public static (int computerRow, int computerCol) GetComputerPosition(string[,] grid, string computerSymbol)    //(1-access modifier, 2-static method (can be called), 3-return type, 4-method name, 5-params- 2d string array and symbol the computer uses)
         {
             Random random = new Random();                       //create random number
             List<int> emptyGridPosition = new List<int>();
@@ -129,8 +129,8 @@ namespace Tic_Tac_Toe
                 for (int j = 0; j < Constants.COLS; j++)
                 {
                     if (grid[i, j]  != Constants.SYMBOL1.ToString() && grid[i, j] != Constants.SYMBOL2.ToString())    //look for numbers = empty or look for symbols to identify taken cells
-                    {                                                             
-                        emptyGridPosition.Add(i * Constants.COLS + j);            
+                    {
+                        emptyGridPosition.Add(int.Parse(grid[i,j]));     //fix this  look at displaygrid method     
                     }
                 }
             }
